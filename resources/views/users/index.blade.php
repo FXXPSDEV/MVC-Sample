@@ -1,19 +1,19 @@
-@extends('layouts.app', ['title' => __('User Management')])
+@extends('layouts.app', ['title' => __('Controle de Usuário')])
 
 @section('content')
     @include('layouts.headers.cards')
-
+    <title>Controle de Usuários</title>
     <div class="container-fluid mt--7">
-        <div class="row">
-            <div class="col">
-                <div class="card shadow">
+        <div class="row align-items-center md-12">    
+            <div class="col-md-9 pull-right"style="margin-left:21.5%;">
+                <div class="card shadow col-md-12">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">{{ __('Users') }}</h3>
+                                <h3 class="mb-0">{{ __('Usuários') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Add user') }}</a>
+                                <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Novo usuário') }}</a>
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                         @if (session('status'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{ session('status') }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -33,9 +33,9 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">{{ __('Name') }}</th>
+                                    <th scope="col">{{ __('Nome') }}</th>
                                     <th scope="col">{{ __('Email') }}</th>
-                                    <th scope="col">{{ __('Creation Date') }}</th>
+                                    <th scope="col">{{ __('Data de Criação') }}</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -58,13 +58,13 @@
                                                             @csrf
                                                             @method('delete')
                                                             
-                                                            <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('Edit') }}</a>
-                                                            <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
-                                                                {{ __('Delete') }}
+                                                            <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('Editar') }}</a>
+                                                            <button type="button" class="dropdown-item" onclick="confirm('{{ __("Você tem certeza que deseja remover este usuário?") }}') ? this.parentElement.submit() : ''">
+                                                                {{ __('Remover') }}
                                                             </button>
                                                         </form>    
                                                     @else
-                                                        <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Edit') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Editar') }}</a>
                                                     @endif
                                                 </div>
                                             </div>
@@ -79,6 +79,7 @@
                             {{ $users->links() }}
                         </nav>
                     </div>
+                
                 </div>
             </div>
         </div>
