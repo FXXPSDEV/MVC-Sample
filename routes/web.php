@@ -16,9 +16,10 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-Route::get('/home', 'UserController@index')->name('home');
+
 
 Route::group(['middleware' => 'auth'], function () {
+	Route::get('/home', 'UserController@index')->name('home');
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
