@@ -13,15 +13,14 @@
                 <div class="page-header">
                     <h2>Todas as Tarefas</h2>
                 </div>
-                @foreach($task as $t)
-                    <div class="card">
-                        <div class="card-header">
-                            {{$t->title}}
-                        </div>
-                        <div class="card-body">
-                            {{$t->description}}
-                        </div>
+                @foreach($tasks as $task)
+                <div class="card">
+                    <div class="card-header">{{$task->title}}</div>
+
+                    <div class="card-body">
+                        {{$task->description}}
                     </div>
+                </div>
                 @endforeach
             </div>
         </div>
